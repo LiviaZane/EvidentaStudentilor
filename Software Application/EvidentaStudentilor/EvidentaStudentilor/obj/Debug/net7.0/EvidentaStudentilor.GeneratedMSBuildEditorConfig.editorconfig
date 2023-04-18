@@ -1,0 +1,289 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EvidentaStudentilor
+build_property.RootNamespace = EvidentaStudentilor
+build_property.ProjectDir = D:\documente facultate\Anul III\semestrul 2\PAW\laborator\Prezentare3\EvidentaStudentilor\EvidentaStudentilor\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\documente facultate\Anul III\semestrul 2\PAW\laborator\Prezentare3\EvidentaStudentilor\EvidentaStudentilor
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Curricula/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmljdWxhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Curricula/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmljdWxhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Curricula/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmljdWxhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Curricula/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmljdWxhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Curricula/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VycmljdWxhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Departments/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Departments/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Departments/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Departments/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Departments/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVwYXJ0bWVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Exams/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Exams/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Exams/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Exams/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Exams/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXhhbXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Grades/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Grades/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Grades/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Grades/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Grades/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR3JhZGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Login/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Profiles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Profiles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Profiles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Profiles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Profiles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Roles/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Roles/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Roles/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Roles/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Roles/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9sZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Schedules/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Schedules/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Schedules/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Schedules/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Schedules/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2NoZWR1bGVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Shared/_PartialLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXJ0aWFsTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Shared/_PartialLoginView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QYXJ0aWFsTG9naW5WaWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Create2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcQ3JlYXRlMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Students/View1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R1ZGVudHNcVmlldzEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Subjects/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Subjects/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Subjects/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Subjects/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Subjects/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3ViamVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Create2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcQ3JlYXRlMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Teachers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVGVhY2hlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Users/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Users/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Users/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Users/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/documente facultate/Anul III/semestrul 2/PAW/laborator/Prezentare3/EvidentaStudentilor/EvidentaStudentilor/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-g5zq6coivp
