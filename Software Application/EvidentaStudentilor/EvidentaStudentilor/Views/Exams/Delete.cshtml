@@ -12,6 +12,12 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StudyYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StudyYear)
+        </dd>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Data)
         </dt>
         <dd class = "col-sm-10">
@@ -42,10 +48,16 @@
             @Html.DisplayFor(model => model.Closed)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Curricula)
+            @Html.DisplayNameFor(model => model.Profile)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Curricula.Id)
+            @Html.DisplayFor(model => model.Profile.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Subject.Id)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Teacher)

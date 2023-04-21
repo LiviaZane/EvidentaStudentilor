@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EvidentaStudentilor.Models;
-using NuGet.Protocol;
 using EvidentaStudentilor.Utilities;
 
 namespace EvidentaStudentilor.Controllers
@@ -22,6 +21,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Users
         [Authorize("Secretar", "Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             var list = await _context.Users.ToListAsync();
@@ -47,6 +47,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Users/Details/5
         [Authorize("Secretar", "Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Users == null)
@@ -54,7 +55,8 @@ namespace EvidentaStudentilor.Controllers
                 return NotFound();
             }
 
-            var user = await _context.Users.Include(x => x.Role).Where(x => x.Role.Id == x.RoleId)
+            var user = await _context.Users
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -66,6 +68,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Users/Create
         [Authorize("Secretar", "Administrator")]
+        [HttpGet]
         public IActionResult Create()
         {
             User user = new User();
@@ -81,13 +84,14 @@ namespace EvidentaStudentilor.Controllers
             ViewBag.RoleId = new SelectList(list, "Id", "Name", user.RoleId);
             return View(user);
         }
-        [Authorize("Secretar", "Administrator")]
+
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize("Secretar", "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RoleId,Name,FirstName,Email,Paswword")] User user)
+        public async Task<IActionResult> Create([Bind("Id,RoleId,Email,Paswword")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -101,6 +105,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Users/Edit/5
         [Authorize("Secretar", "Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Users == null)
@@ -131,7 +136,7 @@ namespace EvidentaStudentilor.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RoleId,Name,FirstName,Email,Paswword")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,RoleId,Email,Paswword")] User user)
         {
             if (id != user.Id)
             {
@@ -163,6 +168,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Users/Delete/5
         [Authorize("Secretar", "Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Users == null)
@@ -171,6 +177,7 @@ namespace EvidentaStudentilor.Controllers
             }
 
             var user = await _context.Users
+                .Include(u => u.Role)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
@@ -194,14 +201,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Users.Remove(user);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-            return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

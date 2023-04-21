@@ -11,7 +11,7 @@ namespace EvidentaStudentilor.Models
 
         //navigation property
         public virtual ICollection<Student>? Students { get; set; }
-        //public virtual ICollection<Exam>? Exams { get; set; }
+        public virtual ICollection<Exam>? Exams { get; set; }
         public virtual ICollection<Schedule>? Schedules { get; set; }
         public virtual ICollection<Curricula>? Curricula { get; set; }
     }

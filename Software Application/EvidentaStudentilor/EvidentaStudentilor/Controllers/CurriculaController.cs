@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EvidentaStudentilor.Models;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using EvidentaStudentilor.Utilities;
 
 namespace EvidentaStudentilor.Controllers
@@ -20,7 +19,14 @@ namespace EvidentaStudentilor.Controllers
             _context = context;
         }
 
+        [Authorize("Secretar")]
+        public IActionResult CreateExam(int? id) 
+        {
+            return RedirectToAction("Create", "Exams", new { ID = id });
+        }
+
         // GET: Curricula
+        [HttpGet]
         [Authentication]
         public async Task<IActionResult> Index()
         {
@@ -29,6 +35,7 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Curricula/Details/5
+        [HttpGet]
         [Authentication]
         public async Task<IActionResult> Details(int? id)
         {
@@ -51,11 +58,11 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Curricula/Create
         [Authorize("Secretar")]
+        [HttpGet]
         public IActionResult Create()
         {
-            Curricula curricula = new Curricula();
-            ViewBag.ProfileId = new SelectList(_context.Profiles, "Id", "Name", curricula.ProfileId);
-            ViewBag.SubjectId = new SelectList(_context.Subjects, "Id", "Name", curricula.SubjectId);
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id");
+            ViewData["SubjectId"] = new SelectList(_context.Subjects, "Id", "Id");
             return View();
         }
 
@@ -68,7 +75,6 @@ namespace EvidentaStudentilor.Controllers
         {
             if (ModelState.IsValid)
             {
-                curricula.Id = 0;
                 _context.Add(curricula);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -80,6 +86,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Curricula/Edit/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Curricula == null)
@@ -92,8 +99,8 @@ namespace EvidentaStudentilor.Controllers
             {
                 return NotFound();
             }
-            ViewBag.ProfileId = new SelectList(_context.Profiles, "Id", "Name", curricula.ProfileId);
-            ViewBag.SubjectId = new SelectList(_context.Subjects, "Id", "Name", curricula.SubjectId);
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id", curricula.ProfileId);
+            ViewData["SubjectId"] = new SelectList(_context.Subjects, "Id", "Id", curricula.SubjectId);
             return View(curricula);
         }
 
@@ -136,6 +143,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Curricula/Delete/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Curricula == null)

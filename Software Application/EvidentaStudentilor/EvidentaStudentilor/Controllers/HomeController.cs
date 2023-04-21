@@ -13,16 +13,22 @@ namespace EvidentaStudentilor.Controllers
             _logger = logger;
         }
 
+        [Route("")]
+        [Route("Home")]
+        [Route("Home/Index")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();
         }
 
+        [HttpGet]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -43,12 +43,6 @@
 <li class="nav-item">
     @if (userRole != null && userRole != "Administrator")
     {
-        <button onclick="location.href='@Url.Action("Index", "Curricula")'">Curricula</button>
-    }
-</li>
-<li class="nav-item">
-    @if (userRole != null && userRole != "Administrator")
-    {
         <button onclick="location.href='@Url.Action("Index", "Schedules")'">Schedules</button>
     }
 </li>
@@ -56,6 +50,12 @@
     @if (userRole == "Secretar")
     {
         <button onclick="location.href='@Url.Action("Index", "Subjects")'">Subjects</button>
+    }
+</li>
+<li class="nav-item">
+    @if (userRole != null && userRole != "Administrator")
+    {
+        <button onclick="location.href='@Url.Action("Index", "Curricula")'">Curricula</button>
     }
 </li>
 <li class="nav-item">
@@ -74,5 +74,17 @@
     @if (userRole == "Teacher")
     {
         <button onclick="location.href='@Url.Action("Index", "TeacherUser")'">TeacherUser</button>
+    }
+</li>
+<li class="nav-item">
+    @if (userRole == "Secretar")
+    {
+        <button onclick="location.href='@Url.Action("Index", "SecretarUser")'">SecretaryUser</button>
+    }
+</li>
+<li class="nav-item">
+    @if (userRole == "Administrator")
+    {
+        <button onclick="location.href='@Url.Action("Index", "Administrator")'">Save/Restore database</button>
     }
 </li>

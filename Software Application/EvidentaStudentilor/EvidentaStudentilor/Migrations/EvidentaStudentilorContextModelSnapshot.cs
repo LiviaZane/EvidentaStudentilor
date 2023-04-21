@@ -85,7 +85,7 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<bool>("Closed")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CurriculaId")
+                    b.Property<int?>("CurriculaId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Data")
@@ -97,20 +97,31 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<int>("HourOut")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ProfileId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Room")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int>("Semester")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudyYear")
+                        .HasColumnType("int");
+
                     b.Property<int?>("SubjectId")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeacherId")
+                    b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CurriculaId");
+
+                    b.HasIndex("ProfileId");
 
                     b.HasIndex("SubjectId");
 
@@ -133,11 +144,23 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<bool>("ApprovedReexam")
                         .HasColumnType("bit");
 
-                    b.Property<int>("ExamId")
+                    b.Property<int?>("CurriculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ExamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FormerGrade")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProfileId")
                         .HasColumnType("int");
 
                     b.Property<bool>("Reexamination")
                         .HasColumnType("bit");
+
+                    b.Property<int>("Semester")
+                        .HasColumnType("int");
 
                     b.Property<int?>("StudentId")
                         .HasColumnType("int");
@@ -148,9 +171,16 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<int?>("TeacherId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Year")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CurriculaId");
+
                     b.HasIndex("ExamId");
+
+                    b.HasIndex("ProfileId");
 
                     b.HasIndex("StudentId");
 
@@ -241,6 +271,14 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<int>("CurrentYear")
                         .HasColumnType("int");
 
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<int>("ProfileId")
                         .HasColumnType("int");
 
@@ -303,6 +341,14 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<int>("DepartmentId")
                         .HasColumnType("int");
 
+                    b.Property<string>("FirstName")
+                        .HasMaxLength(35)
+                        .HasColumnType("nvarchar(35)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
@@ -329,14 +375,6 @@ namespace EvidentaStudentilor.Migrations
                     b.Property<string>("Email")
                         .HasMaxLength(30)
                         .HasColumnType("nvarchar(30)");
-
-                    b.Property<string>("FirstName")
-                        .HasMaxLength(35)
-                        .HasColumnType("nvarchar(35)");
-
-                    b.Property<string>("Name")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Paswword")
                         .HasMaxLength(30)
@@ -375,48 +413,66 @@ namespace EvidentaStudentilor.Migrations
                 {
                     b.HasOne("EvidentaStudentilor.Models.Curricula", "Curricula")
                         .WithMany()
-                        .HasForeignKey("CurriculaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("CurriculaId");
 
-                    b.HasOne("EvidentaStudentilor.Models.Subject", null)
+                    b.HasOne("EvidentaStudentilor.Models.Profile", "Profile")
+                        .WithMany("Exams")
+                        .HasForeignKey("ProfileId");
+
+                    b.HasOne("EvidentaStudentilor.Models.Subject", "Subject")
                         .WithMany("Exams")
                         .HasForeignKey("SubjectId");
 
                     b.HasOne("EvidentaStudentilor.Models.Teacher", "Teacher")
                         .WithMany("Exams")
-                        .HasForeignKey("TeacherId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeacherId");
 
                     b.Navigation("Curricula");
+
+                    b.Navigation("Profile");
+
+                    b.Navigation("Subject");
 
                     b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("EvidentaStudentilor.Models.Grade", b =>
                 {
+                    b.HasOne("EvidentaStudentilor.Models.Curricula", "Curricula")
+                        .WithMany()
+                        .HasForeignKey("CurriculaId");
+
                     b.HasOne("EvidentaStudentilor.Models.Exam", "Exam")
                         .WithMany()
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ExamId");
+
+                    b.HasOne("EvidentaStudentilor.Models.Profile", "Profile")
+                        .WithMany()
+                        .HasForeignKey("ProfileId");
 
                     b.HasOne("EvidentaStudentilor.Models.Student", "Student")
                         .WithMany()
                         .HasForeignKey("StudentId");
 
-                    b.HasOne("EvidentaStudentilor.Models.Subject", null)
+                    b.HasOne("EvidentaStudentilor.Models.Subject", "Subject")
                         .WithMany("Grades")
                         .HasForeignKey("SubjectId");
 
-                    b.HasOne("EvidentaStudentilor.Models.Teacher", null)
+                    b.HasOne("EvidentaStudentilor.Models.Teacher", "Teacher")
                         .WithMany("Grades")
                         .HasForeignKey("TeacherId");
 
+                    b.Navigation("Curricula");
+
                     b.Navigation("Exam");
 
+                    b.Navigation("Profile");
+
                     b.Navigation("Student");
+
+                    b.Navigation("Subject");
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("EvidentaStudentilor.Models.Schedule", b =>
@@ -487,6 +543,8 @@ namespace EvidentaStudentilor.Migrations
             modelBuilder.Entity("EvidentaStudentilor.Models.Profile", b =>
                 {
                     b.Navigation("Curricula");
+
+                    b.Navigation("Exams");
 
                     b.Navigation("Schedules");
 

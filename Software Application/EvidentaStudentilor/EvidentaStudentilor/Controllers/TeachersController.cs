@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EvidentaStudentilor.Models;
+using NuGet.DependencyResolver;
 using EvidentaStudentilor.Utilities;
 
 namespace EvidentaStudentilor.Controllers
@@ -21,21 +22,16 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Teachers
         [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var list = await _context.Teachers.Include(x => x.Department).Where(x => x.Department.Id == x.DepartmentId).
-                Include(y => y.User).Where(y => y.User.Id == y.UserId).ToListAsync();
-
-            if (_context.Students == null)
-            {
-                return Problem("Entity set 'EvidentaStudentilorContext.Students'  is null.");
-            }
-
-            return View(list);
+            var evidentaStudentilorContext = _context.Teachers.Include(t => t.Department).Include(t => t.User);
+            return View(await evidentaStudentilorContext.ToListAsync());
         }
 
         // GET: Teachers/Details/5
         [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Teachers == null)
@@ -44,13 +40,13 @@ namespace EvidentaStudentilor.Controllers
             }
 
             var teacher = await _context.Teachers
+                .Include(t => t.Department)
+                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (teacher == null)
             {
                 return NotFound();
             }
-            var list = await _context.Users.Where(y => y.Id == teacher.UserId).ToListAsync();
-            ViewBag.TeacherName = list.FirstOrDefault().Name + " " + list.FirstOrDefault().FirstName;
             var list2 = await _context.Departments.Where(y => y.Id == teacher.DepartmentId).ToListAsync();
             ViewBag.Department = list2.FirstOrDefault().Name;
             return View(teacher);
@@ -58,19 +54,14 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Teachers/Create
         [Authorize("Secretar")]
-        public async Task<IActionResult> Create()
-        {
-            var list = await _context.Users.Where(x => _context.Teachers.All(y => y.UserId != x.Id) && x.RoleId == 2).ToListAsync();  //role=2 for teacher
-            return View(list);
-        }
-
-        [Authorize("Secretar")]
-        public IActionResult Create2(int? id)
+        [HttpGet]
+        public IActionResult Create()
         {
             Teacher teacher = new Teacher();
-            teacher.UserId = (int)id;
+            var list = _context.Users.Where(x => _context.Teachers.All(y => y.UserId != x.Id) && x.RoleId == 2).ToList(); //role=2 for teachers
+            ViewBag.UserId = new SelectList(list, "Id", "Id", teacher.UserId);
             ViewBag.DepartmentId = new SelectList(_context.Departments, "Id", "Name", teacher.DepartmentId);
-            return View(teacher);
+            return View();
         }
 
         // POST: Teachers/Create
@@ -78,7 +69,7 @@ namespace EvidentaStudentilor.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create2([Bind("Id,UserId,DepartmentId,Title")] Teacher teacher)
+        public async Task<IActionResult> Create([Bind("Id,UserId,Name,FirstName,DepartmentId,Title")] Teacher teacher)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +83,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Teachers/Edit/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Teachers == null)
@@ -104,10 +96,7 @@ namespace EvidentaStudentilor.Controllers
             {
                 return NotFound();
             }
-            var list = await _context.Users.Where(y => y.Id == teacher.UserId).ToListAsync();
-            ViewBag.TeacherName = list.FirstOrDefault().Name + " " + list.FirstOrDefault().FirstName;
-            ViewBag.DepartmentId = new SelectList(_context.Departments, "Id", "Name", teacher.DepartmentId);   // used ViewBag to display Departments.Name in SelectList
-            return View(teacher);                                                               // and save Department.Id (from SelectList) instead teacher.DepartmentId
+            return View(teacher);
         }
 
         // POST: Teachers/Edit/5
@@ -115,7 +104,7 @@ namespace EvidentaStudentilor.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,DepartmentId,Title")] Teacher teacher)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,UserId,Name,FirstName,DepartmentId,Title")] Teacher teacher)
         {
             if (id != teacher.Id)
             {
@@ -147,6 +136,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Teachers/Delete/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Teachers == null)
@@ -155,6 +145,8 @@ namespace EvidentaStudentilor.Controllers
             }
 
             var teacher = await _context.Teachers
+                .Include(t => t.Department)
+                .Include(t => t.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (teacher == null)
             {
@@ -178,14 +170,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Teachers.Remove(teacher);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool TeacherExists(int id)
         {
-            return (_context.Teachers?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Teachers?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

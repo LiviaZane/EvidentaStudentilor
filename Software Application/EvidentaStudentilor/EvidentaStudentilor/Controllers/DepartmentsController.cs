@@ -20,16 +20,18 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Departments
+        [HttpGet]
         [Authentication]
         public async Task<IActionResult> Index()
         {
-            return _context.Departments != null ?
-                        View(await _context.Departments.ToListAsync()) :
-                        Problem("Entity set 'EvidentaStudentilorContext.Departments'  is null.");
+              return _context.Departments != null ? 
+                          View(await _context.Departments.ToListAsync()) :
+                          Problem("Entity set 'EvidentaStudentilorContext.Departments'  is null.");
         }
 
         // GET: Departments/Details/5
         [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Departments == null)
@@ -49,6 +51,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Departments/Create
         [Authorize("Secretar")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -59,7 +62,6 @@ namespace EvidentaStudentilor.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authentication]
         public async Task<IActionResult> Create([Bind("Id,Name")] Department department)
         {
             if (ModelState.IsValid)
@@ -73,6 +75,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Departments/Edit/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Departments == null)
@@ -125,6 +128,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Departments/Delete/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Departments == null)
@@ -156,14 +160,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Departments.Remove(department);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartmentExists(int id)
         {
-            return (_context.Departments?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Departments?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

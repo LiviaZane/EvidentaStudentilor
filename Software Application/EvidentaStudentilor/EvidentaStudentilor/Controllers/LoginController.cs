@@ -41,20 +41,23 @@ namespace EvidentaStudentilor.Controllers
                     var role = _context.Roles.Where(r => r.Id == user.RoleId).FirstOrDefault();
                     HttpContext.Session.SetString("UserName", user.Email.ToString());
                     HttpContext.Session.SetString("UserRole", role.Name.ToString());
-                    HttpContext.Session.SetString("UserEntireName", user.Name.ToString() + " " + user.FirstName.ToString());
-                    Student student = _context.Students.Where(x => x.UserId == user.Id).FirstOrDefault();
-                    Teacher teacher = _context.Teachers.Where(x => x.UserId == user.Id).FirstOrDefault();
-                    if (student != null)
+                    if (role.Name == "Student")
                     {
-                        string profile = _context.Profiles.Where(x => x.Id == student.ProfileId).FirstOrDefault().Name.ToString();
-                        HttpContext.Session.SetString("UserProfile", profile);
-                    } 
-                    else if (teacher != null) 
-                    {
-                        string department = _context.Departments.Where(x => x.Id == teacher.DepartmentId).FirstOrDefault().Name.ToString();
-                        HttpContext.Session.SetString("UserProfile", department);
+                        Student student = _context.Students.Where(s => s.UserId == user.Id).FirstOrDefault();
+                        HttpContext.Session.SetString("UserEntireName", student.Name + " " + student.FirstName);
+                        HttpContext.Session.SetString("StudTeachID", student.Id.ToString());
+                        Profile profile = _context.Profiles.Where(p => p.Id == student.ProfileId).FirstOrDefault();
+                        HttpContext.Session.SetString("UserProfile", profile.Name);
                     }
-
+                    else if (role.Name == "Teacher") 
+                    {
+                        Teacher teacher = _context.Teachers.Where(s => s.UserId == user.Id).FirstOrDefault();
+                        HttpContext.Session.SetString("UserEntireName", teacher.Name + " " + teacher.FirstName);
+                        HttpContext.Session.SetString("StudTeachID", teacher.Id.ToString());
+                        Department department = _context.Departments.Where(p => p.Id == teacher.DepartmentId).FirstOrDefault();
+                        HttpContext.Session.SetString("UserProfile", department.Name);
+                    }
+                   
                     return RedirectToAction("Index", "Home");
                 }
                 else

@@ -6,12 +6,15 @@
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudyYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Semester)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Data)
             </th>
@@ -28,7 +31,10 @@
                 @Html.DisplayNameFor(model => model.Closed)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Curricula)
+                @Html.DisplayNameFor(model => model.Profile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Subject)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Teacher)
@@ -39,6 +45,12 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudyYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Semester)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Data)
             </td>
@@ -55,7 +67,10 @@
                 @Html.DisplayFor(modelItem => item.Closed)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Curricula.Id)
+                @Html.DisplayFor(modelItem => item.Profile.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject.Id)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Teacher.Id)

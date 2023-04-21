@@ -6,12 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EvidentaStudentilor.Models;
+using System.Diagnostics;
+using EvidentaStudentilor.Utilities;
 
 namespace EvidentaStudentilor.Controllers
 {
     public class GradesController : Controller
     {
         private readonly EvidentaStudentilorContext _context;
+        private int? idExam;
 
         public GradesController(EvidentaStudentilorContext context)
         {
@@ -19,59 +22,20 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Grades
-        public async Task<IActionResult> Index()
+        [Authorize("Teacher")]
+        [HttpGet]
+        public async Task<IActionResult> Index(int? id)
         {
-            var evidentaStudentilorContext = _context.Grades.Include(g => g.Exam).Include(g => g.Student);
+            idExam = id;
+            var evidentaStudentilorContext = _context.Grades.Include(g => g.Exam).Include(g => g.Student).Include(g => g.Subject).Include(g => g.Teacher).
+                Where(g => g.ExamId == id);
             return View(await evidentaStudentilorContext.ToListAsync());
         }
 
-        // GET: Grades/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.Grades == null)
-            {
-                return NotFound();
-            }
-
-            var grade = await _context.Grades
-                .Include(g => g.Exam)
-                .Include(g => g.Student)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (grade == null)
-            {
-                return NotFound();
-            }
-
-            return View(grade);
-        }
-
-        // GET: Grades/Create
-        public IActionResult Create()
-        {
-            ViewData["ExamId"] = new SelectList(_context.Exams, "Id", "Id");
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id");
-            return View();
-        }
-
-        // POST: Grades/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,StudentId,ExamId,ActualGrade,Reexamination,ApprovedReexam")] Grade grade)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(grade);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ExamId"] = new SelectList(_context.Exams, "Id", "Id", grade.ExamId);
-            ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", grade.StudentId);
-            return View(grade);
-        }
 
         // GET: Grades/Edit/5
+        [Authorize("Teacher")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Grades == null)
@@ -86,6 +50,8 @@ namespace EvidentaStudentilor.Controllers
             }
             ViewData["ExamId"] = new SelectList(_context.Exams, "Id", "Id", grade.ExamId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", grade.StudentId);
+            ViewData["SubjectId"] = new SelectList(_context.Subjects, "Id", "Id", grade.SubjectId);
+            ViewData["TeacherId"] = new SelectList(_context.Teachers, "Id", "Id", grade.TeacherId);
             return View(grade);
         }
 
@@ -94,7 +60,7 @@ namespace EvidentaStudentilor.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,StudentId,ExamId,ActualGrade,Reexamination,ApprovedReexam")] Grade grade)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,StudentId,ExamId,SubjectId,TeacherId,ActualGrade,Year,Semester,Reexamination,ApprovedReexam")] Grade grade)
         {
             if (id != grade.Id)
             {
@@ -119,50 +85,19 @@ namespace EvidentaStudentilor.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", new {ID = grade.ExamId });
             }
             ViewData["ExamId"] = new SelectList(_context.Exams, "Id", "Id", grade.ExamId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Id", grade.StudentId);
+            ViewData["SubjectId"] = new SelectList(_context.Subjects, "Id", "Id", grade.SubjectId);
+            ViewData["TeacherId"] = new SelectList(_context.Teachers, "Id", "Id", grade.TeacherId);
             return View(grade);
         }
 
-        // GET: Grades/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+
+        public IActionResult BackToExams() 
         {
-            if (id == null || _context.Grades == null)
-            {
-                return NotFound();
-            }
-
-            var grade = await _context.Grades
-                .Include(g => g.Exam)
-                .Include(g => g.Student)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (grade == null)
-            {
-                return NotFound();
-            }
-
-            return View(grade);
-        }
-
-        // POST: Grades/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Grades == null)
-            {
-                return Problem("Entity set 'EvidentaStudentilorContext.Grades'  is null.");
-            }
-            var grade = await _context.Grades.FindAsync(id);
-            if (grade != null)
-            {
-                _context.Grades.Remove(grade);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Index", "TeacherUser");
         }
 
         private bool GradeExists(int id)

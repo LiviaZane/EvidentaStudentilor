@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvidentaStudentilor", "EvidentaStudentilor\EvidentaStudentilor.csproj", "{E5AD9FE2-BFB2-47FC-BAA1-AE3029203026}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvidentaStudentilor", "EvidentaStudentilor\EvidentaStudentilor.csproj", "{CBC2223C-3D81-4C40-8DBB-D6B3D34999E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E5AD9FE2-BFB2-47FC-BAA1-AE3029203026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5AD9FE2-BFB2-47FC-BAA1-AE3029203026}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5AD9FE2-BFB2-47FC-BAA1-AE3029203026}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5AD9FE2-BFB2-47FC-BAA1-AE3029203026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBC2223C-3D81-4C40-8DBB-D6B3D34999E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC2223C-3D81-4C40-8DBB-D6B3D34999E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC2223C-3D81-4C40-8DBB-D6B3D34999E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC2223C-3D81-4C40-8DBB-D6B3D34999E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {E3EF91B8-D983-4E70-A8BB-86715B13F3E5}
+		SolutionGuid = {CBA0CB32-3196-443E-8AFE-360855CEBD5B}
 	EndGlobalSection
 EndGlobal

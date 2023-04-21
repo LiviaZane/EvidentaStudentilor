@@ -20,16 +20,18 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Subjects
-        [Authorize("Secretar")]
+        [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return _context.Subjects != null ?
-                        View(await _context.Subjects.ToListAsync()) :
-                        Problem("Entity set 'EvidentaStudentilorContext.Subjects'  is null.");
+              return _context.Subjects != null ? 
+                          View(await _context.Subjects.ToListAsync()) :
+                          Problem("Entity set 'EvidentaStudentilorContext.Subjects'  is null.");
         }
 
         // GET: Subjects/Details/5
-        [Authorize("Secretar")]
+        [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Subjects == null)
@@ -49,6 +51,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Subjects/Create
         [Authorize("Secretar")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -72,6 +75,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Subjects/Edit/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Subjects == null)
@@ -124,6 +128,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Subjects/Delete/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Subjects == null)
@@ -155,14 +160,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Subjects.Remove(subject);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool SubjectExists(int id)
         {
-            return (_context.Subjects?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Subjects?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

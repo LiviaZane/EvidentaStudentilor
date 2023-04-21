@@ -20,16 +20,16 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Roles
-        [Authorize("Administrator")]
         public async Task<IActionResult> Index()
         {
-            return _context.Roles != null ?
-                        View(await _context.Roles.ToListAsync()) :
-                        Problem("Entity set 'EvidentaStudentilorContext.Roles'  is null.");
+              return _context.Roles != null ? 
+                          View(await _context.Roles.ToListAsync()) :
+                          Problem("Entity set 'EvidentaStudentilorContext.Roles'  is null.");
         }
 
         // GET: Roles/Details/5
         [Authorize("Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Roles == null)
@@ -49,6 +49,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Roles/Create
         [Authorize("Administrator")]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
@@ -72,6 +73,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Roles/Edit/5
         [Authorize("Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Roles == null)
@@ -124,6 +126,7 @@ namespace EvidentaStudentilor.Controllers
 
         // GET: Roles/Delete/5
         [Authorize("Administrator")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Roles == null)
@@ -155,14 +158,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Roles.Remove(role);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RoleExists(int id)
         {
-            return (_context.Roles?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Roles?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

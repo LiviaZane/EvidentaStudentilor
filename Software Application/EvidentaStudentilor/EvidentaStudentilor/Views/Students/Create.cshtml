@@ -1,4 +1,4 @@
-﻿@model IEnumerable<EvidentaStudentilor.Models.User>
+﻿@model EvidentaStudentilor.Models.Student
 
 @{
     ViewData["Title"] = "Create";
@@ -6,52 +6,58 @@
 
 <h1>Create</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Paswword)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Role)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Paswword)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role.Id)
-            </td>
-            <td>
-                <a asp-action="Create2" asp-route-id="@item.Id">CreateStudent</a>
-            </td>
-        </tr>
+<h4>Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label"></label>
+                @Html.DropDownList("UserId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName" class="control-label"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdmisionYear" class="control-label"></label>
+                <input asp-for="AdmisionYear" class="form-control" />
+                <span asp-validation-for="AdmisionYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentYear" class="control-label"></label>
+                <input asp-for="CurrentYear" class="form-control" />
+                <span asp-validation-for="CurrentYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfileId" class="control-label"></label>
+                @Html.DropDownList("ProfileId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ProfileId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Budget" /> @Html.DisplayNameFor(model => model.Budget)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
-    </tbody>
-</table>

@@ -20,17 +20,17 @@ namespace EvidentaStudentilor.Controllers
         }
 
         // GET: Schedules
-        [HttpGet]
         [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var list = await _context.Schedules.Include(x => x.Profile).Where(x => x.Profile.Id == x.ProfileId).ToListAsync();
-            return View(list);
+            var evidentaStudentilorContext = _context.Schedules.Include(s => s.Profile);
+            return View(await evidentaStudentilorContext.ToListAsync());
         }
 
         // GET: Schedules/Details/5
-        [HttpGet]
         [Authentication]
+        [HttpGet]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Schedules == null)
@@ -38,23 +38,24 @@ namespace EvidentaStudentilor.Controllers
                 return NotFound();
             }
 
-            var schedule = await _context.Schedules.FindAsync(id);
+            var schedule = await _context.Schedules
+                .Include(s => s.Profile)
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (schedule == null)
             {
                 return NotFound();
             }
+
             return View(schedule);
         }
 
-
         // GET: Schedules/Create
         [Authorize("Secretar")]
+        [HttpGet]
         public IActionResult Create()
         {
-            Schedule schedule = new Schedule();
-            var list = _context.Profiles.ToList();
-            ViewBag.ProfileId = new SelectList(list, "Id", "Name", schedule.ProfileId);
-            return View(schedule);
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id");
+            return View();
         }
 
         // POST: Schedules/Create
@@ -66,16 +67,17 @@ namespace EvidentaStudentilor.Controllers
         {
             if (ModelState.IsValid)
             {
-                schedule.Id = 0;
                 _context.Add(schedule);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id", schedule.ProfileId);
             return View(schedule);
         }
 
         // GET: Schedules/Edit/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Schedules == null)
@@ -88,7 +90,7 @@ namespace EvidentaStudentilor.Controllers
             {
                 return NotFound();
             }
-            ViewBag.ProfileId = new SelectList(_context.Profiles, "Id", "Name", schedule.ProfileId);
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id", schedule.ProfileId);
             return View(schedule);
         }
 
@@ -124,11 +126,13 @@ namespace EvidentaStudentilor.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ProfileId"] = new SelectList(_context.Profiles, "Id", "Id", schedule.ProfileId);
             return View(schedule);
         }
 
         // GET: Schedules/Delete/5
         [Authorize("Secretar")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Schedules == null)
@@ -137,6 +141,7 @@ namespace EvidentaStudentilor.Controllers
             }
 
             var schedule = await _context.Schedules
+                .Include(s => s.Profile)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (schedule == null)
             {
@@ -160,14 +165,14 @@ namespace EvidentaStudentilor.Controllers
             {
                 _context.Schedules.Remove(schedule);
             }
-
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ScheduleExists(int id)
         {
-            return (_context.Schedules?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Schedules?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
