@@ -1,0 +1,13 @@
+﻿@model EvidentaStudentilor.DataModel.Schedule
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h1>Details</h1>
+
+<iframe src="~/img/@Html.DisplayFor(model => model.FileName)" width="1000px" height="420px" type="application/pdf"></iframe>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
