@@ -36,6 +36,11 @@ namespace EvidentaStudentilor.LogicServices
             return _wrapperRepository.ExamRepository.FindAll();
         }
 
+        public IEnumerable<Exam> GetExamByTeacherId(int teachId, bool closed)
+        {
+            return _wrapperRepository.ExamRepository.FindAll().Where(x => x.TeacherId == teachId && x.Closed == closed);
+        }
+
 
         public Exam GetExam(int id)
         {

@@ -26,7 +26,7 @@ namespace EvidentaStudentilor.Controllers
         {
             string teacherId = HttpContext.Session.GetString("StudTeachID");
             var teachId = Int32.Parse(teacherId);
-            var evidentaStudentilorContext = exams.GetExam().Where(x => x.TeacherId == teachId && x.Closed == false);
+            var evidentaStudentilorContext = exams.GetExamByTeacherId(teachId, false);
             return View(evidentaStudentilorContext.ToList());
         }
 

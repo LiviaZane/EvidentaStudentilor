@@ -13,6 +13,7 @@ namespace EvidentaStudentilor.LogicServices.ServiceInterfaces
         public User? GetUserByEmail(string email);
         public int GetUserIdByEmail(string email);
         public IEnumerable<Role> GetRole();
+        public string GetUserRole(int id);
         public IEnumerable<Role> GetRole(string a, string b);
         public IEnumerable<User> GetUsersRole(string a);
         public IEnumerable<User> GetUsersRole(string a, string b);

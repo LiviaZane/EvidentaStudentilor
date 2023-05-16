@@ -9,6 +9,7 @@ namespace EvidentaStudentilor.LogicServices.ServiceInterfaces
         public void deleteExam(Exam exam);
 
         public IEnumerable<Exam> GetExam();
+        public IEnumerable<Exam> GetExamByTeacherId(int teachId, bool closed);
         public Exam GetExam(int id);
         public Curricula GetCurricula(int id);
         public IEnumerable<Teacher> GetTeacher();

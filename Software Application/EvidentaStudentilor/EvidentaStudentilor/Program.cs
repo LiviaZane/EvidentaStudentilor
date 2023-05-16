@@ -3,6 +3,7 @@ using EvidentaStudentilor.Repositories;
 using EvidentaStudentilor.LogicServices;
 using EvidentaStudentilor.RepositoryInterfaces;
 using EvidentaStudentilor.LogicServices.ServiceInterfaces;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -82,5 +83,6 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();
