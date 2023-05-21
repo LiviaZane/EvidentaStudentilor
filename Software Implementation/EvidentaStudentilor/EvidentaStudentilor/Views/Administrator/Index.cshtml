@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "_Layout";
+}
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<table class="adminTable">
+    <tr>
+        <th>
+            <button class="adminButton" onclick="location.href='@Url.Action("Save", "Administrator")'">Save database</button>
+        </th>
+        <th></th>
+        <th>
+            <button class="adminButton" onclick="location.href='@Url.Action("Restore", "Administrator")'">Restore database</button>
+        </th>
+    </tr>
+</table>
+
