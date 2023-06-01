@@ -1,0 +1,74 @@
+﻿@model EvidentaStudentilor.DataModel.Exam
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Exam</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <input type="hidden" asp-for="ProfileId" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="SubjectId" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="CurriculaId" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="StudyYear" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Semester" />
+            </div>
+            <div class="form-group">
+                <label asp-for="TeacherId" class="control-label"></label>
+                @Html.DropDownList("TeacherId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.TeacherId, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Data" class="control-label"></label>
+                <input asp-for="Data" class="form-control" />
+                <span asp-validation-for="Data" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HourIn" class="control-label"></label>
+                <input asp-for="HourIn" class="form-control" />
+                <span asp-validation-for="HourIn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HourOut" class="control-label"></label>
+                <input asp-for="HourOut" class="form-control" />
+                <span asp-validation-for="HourOut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Room" class="control-label"></label>
+                <input asp-for="Room" class="form-control" />
+                <span asp-validation-for="Room" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Closed" /> @Html.DisplayNameFor(model => model.Closed)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

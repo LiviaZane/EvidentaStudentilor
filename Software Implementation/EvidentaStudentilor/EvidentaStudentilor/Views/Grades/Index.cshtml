@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EvidentaStudentilor.DataModel.Grade>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="BackToExams">Back to exams page</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Student
+            </th>
+            <th>
+                FormerGrade
+            </th>
+            <th>
+                ActualGrade
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Student.Name) @Html.DisplayFor(modelItem => item.Student.FirstName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.FormerGrade)
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActualGrade)
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
